@@ -1,1 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrustClip Media | Turn Reviews Into Social Media Content</title>
+  <meta name="description" content="TrustClip Media is the easiest way to turn genuine customer reviews into professional branded social media content. Set it up once. We do the rest." />
+  <meta property="og:title" content="TrustClip Media" />
+  <meta property="og:description" content="The easiest way to turn genuine customer reviews into social media content." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg: #070711;
+      --panel: #10101e;
+      --panel-soft: rgba(255,255,255,0.06);
+      --text: #ffffff;
+      --muted: #cbd5e1;
+      --purple: #8b5cf6;
+      --purple-light: #c4b5fd;
+      --border: rgba(255,255,255,0.12);
+      --light: #f8fafc;
+      --dark-text: #0f172a;
+      --grey-text: #475569;
+    }
 
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero-wrap {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(139, 92, 246, 0.28), transparent 32%),
+        radial-gradient(circle at 85% 10%, rgba(76, 29, 149, 0.32), transparent 35%),
+        linear-gradient(180deg, #070711 0%, #0b0b18 100%);
+      padding: 28px 0 80px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #8b5cf6, #4c1d95);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(139, 92, 246, 0.35);
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      display: block;
+      margin-top: 5px;
+      font-size: 10px;
+      letter-spacing: 0.38em;
+      color: var(--purple-light);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-actions a {
+      text-decoration: none;
+      color: #e2e8f0;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      padding: 15px 24px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+      font-size: 15px;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .button-primary {
+      background: var(--purple);
+      color: white;
+      box-shadow: 0 18px 45px rgba(139, 92, 246, 0.32);
+    }
+
+    .button-primary:hover { background: #7c3aed; }
+
+    .button-secondary {
+      border: 1px solid var(--border);
+      color: white;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 54px;
+      padding: 96px 0 30px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(196,181,253,0.35);
+      color: #ddd6fe;
+      background: rgba(139,92,246,0.10);
+      padding: 10px 15px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      margin: 0;
+      max-width: 780px;
+    }
+
+    .hero-copy {
+      font-size: 21px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 28px 0 0;
+      max-width: 660px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 34px;
+    }
+
+    .trust-note {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-top: 22px;
+    }
+
+    .visual-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
+      border-radius: 34px;
+      padding: 24px;
+      box-shadow: 0 34px 90px rgba(0,0,0,0.45);
+    }
+
+    .review-card {
+      background: white;
+      color: #111827;
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .small-label {
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .stars {
+      color: #f59e0b;
+      font-size: 24px;
+      letter-spacing: 2px;
+      margin: 14px 0;
+    }
+
+    .review-text {
+      font-size: 19px;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .arrow-pill {
+      width: max-content;
+      margin: 18px auto;
+      color: #ddd6fe;
+      background: rgba(139,92,246,0.16);
+      border: 1px solid rgba(196,181,253,0.28);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .video-card {
+      background: #17172a;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .video-card h3 {
+      font-size: 26px;
+      line-height: 1.15;
+      margin: 10px 0 12px;
+    }
+
+    .mock-reel {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 16px;
+      align-items: center;
+      background: rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .phone-shape {
+      height: 138px;
+      border-radius: 18px;
+      background: linear-gradient(160deg, #312e81, #8b5cf6);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-light {
+      background: var(--light);
+      color: var(--dark-text);
+    }
+
+    .section-title {
+      font-size: clamp(34px, 4vw, 48px);
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      margin: 0;
+    }
+
+    .section-intro {
+      color: var(--grey-text);
+      font-size: 18px;
+      line-height: 1.65;
+      max-width: 720px;
+      margin: 18px 0 0;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 38px;
+    }
+
+    .step-card, .benefit-card {
+      border: 1px solid #e2e8f0;
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.06);
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      background: #ede9fe;
+      color: #6d28d9;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .step-card h3, .benefit-card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      letter-spacing: -0.02em;
+    }
+
+    .step-card p, .benefit-card p {
+      margin: 0;
+      color: #64748b;
+      line-height: 1.55;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 38px;
+    }
+
+    .benefit-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: #ede9fe;
+      color: #6d28d9;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .early-section {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(139,92,246,0.2), transparent 35%),
+        #0b0b18;
+      padding: 92px 0;
+    }
+
+    .form-panel {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: center;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.34);
+    }
+
+    .form-panel h2 {
+      margin: 0;
+      font-size: clamp(34px, 4vw, 48px);
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
+
+    .form-panel p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      background: white;
+      color: var(--dark-text);
+      border-radius: 26px;
+      padding: 26px;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 800;
+      color: #334155;
+    }
+
+    input, textarea {
+      width: 100%;
+      margin-top: 7px;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 14px 15px;
+      font: inherit;
+      color: #0f172a;
+    }
+
+    textarea { min-height: 92px; resize: vertical; }
+
+    .form-button {
+      margin-top: 4px;
+      width: 100%;
+      border: 0;
+      border-radius: 999px;
+      padding: 16px 22px;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      background: var(--purple);
+      color: white;
+    }
+
+    .privacy-note {
+      margin: 6px 0 0;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    footer {
+      padding: 34px 0;
+      color: #94a3b8;
+      background: #070711;
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .hero, .form-panel { grid-template-columns: 1fr; }
+      .steps, .benefits-grid { grid-template-columns: 1fr; }
+      .nav-actions a:not(.button) { display: none; }
+      .hero { padding-top: 70px; }
+      .visual-card { padding: 18px; }
+    }
+
+    @media (max-width: 520px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .hero-actions { flex-direction: column; }
+      .button { width: 100%; }
+      nav { align-items: flex-start; }
+      .brand-name { font-size: 22px; }
+      .form-panel { padding: 20px; }
+      form { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero-wrap">
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="TrustClip Media home">
+          <div class="brand-mark">TC</div>
+          <div>
+            <div class="brand-name">TrustClip</div>
+            <span class="brand-sub">MEDIA</span>
+          </div>
+        </a>
+        <div class="nav-actions">
+          <a href="#how-it-works">How it works</a>
+          <a href="#early-access" class="button button-primary">Request Early Access</a>
+        </div>
+      </nav>
+
+      <section id="top" class="hero">
+        <div>
+          <div class="eyebrow">Launching soon for UK and US businesses</div>
+          <h1>The easiest way to turn genuine customer reviews into social media content.</h1>
+          <p class="hero-copy">Set it up once. TrustClip automatically transforms your customer reviews into professional branded social media videos, ready for you to share.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#early-access">Request Early Access</a>
+            <a class="button button-secondary" href="#how-it-works">See How It Works</a>
+          </div>
+          <p class="trust-note">Built for busy business owners who want consistent content without creating it themselves.</p>
+        </div>
+
+        <aside class="visual-card" aria-label="TrustClip review to video example">
+          <div class="review-card">
+            <div class="small-label">Example customer review</div>
+            <div class="stars">★★★★★</div>
+            <p class="review-text">“Fantastic service from start to finish. Reliable, professional and highly recommended.”</p>
+            <p style="margin:16px 0 0; color:#64748b; font-weight:800;">Google Review</p>
+          </div>
+          <div class="arrow-pill">TrustClip turns this into</div>
+          <div class="video-card">
+            <span class="small-label" style="color:#c4b5fd;">Branded review video</span>
+            <h3>Ready-to-share content for your social media pages.</h3>
+            <p style="color:#cbd5e1; line-height:1.55; margin:0;">Your real reviews become professional content for Facebook, Instagram, TikTok and LinkedIn.</p>
+            <div class="mock-reel">
+              <div class="phone-shape">9:16</div>
+              <div>
+                <strong>Business name + logo</strong>
+                <p style="color:#cbd5e1; margin:8px 0 0; line-height:1.45;">Professional presenter, captions and review text.</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <section id="how-it-works" class="section section-light">
+      <div class="container">
+        <h2 class="section-title">How TrustClip works</h2>
+        <p class="section-intro">The product is being built around one simple idea: set it up once, then receive regular review-based content without needing to create it yourself.</p>
+        <div class="steps">
+          <article class="step-card">
+            <div class="step-number">1</div>
+            <h3>Connect your business reviews</h3>
+            <p>Add your business details and review source during setup.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">2</div>
+            <h3>TrustClip creates branded videos</h3>
+            <p>Genuine customer reviews are transformed into professional social media content.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">3</div>
+            <h3>Receive content automatically</h3>
+            <p>Your review videos are delivered ready for you to share on your social channels.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" style="padding-top:0;">
+      <div class="container">
+        <h2 class="section-title">Built for businesses that value trust.</h2>
+        <p class="section-intro">Most businesses already have valuable customer reviews. TrustClip helps turn that trust into consistent marketing content.</p>
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon">✓</div>
+            <h3>Save time</h3>
+            <p>No need to sit down every week wondering what to post.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon">✓</div>
+            <h3>Use genuine reviews</h3>
+            <p>TrustClip is built around real customer feedback, not invented testimonials.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon">✓</div>
+            <h3>Stay visible online</h3>
+            <p>Regular content helps your business look active, trusted and professional.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon">✓</div>
+            <h3>Professional branding</h3>
+            <p>Videos will include your business name, logo and consistent visual style.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="early-access" class="early-section">
+      <div class="container">
+        <div class="form-panel">
+          <div>
+            <div class="eyebrow">Early access</div>
+            <h2>Register your interest in TrustClip Media.</h2>
+            <p>TrustClip Media is currently in development. Join the early access list and we’ll let you know when the first version is ready for selected businesses to try.</p>
+            <p>Early access will be useful for business owners, advisers and service providers who want a simpler way to turn customer reviews into content.</p>
+          </div>
+
+          <form name="early-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+            <input type="hidden" name="form-name" value="early-access" />
+            <p style="display:none;">
+              <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+            </p>
+
+            <label>
+              Your name
+              <input name="name" type="text" placeholder="Your name" required />
+            </label>
+
+            <label>
+              Business name
+              <input name="business" type="text" placeholder="Business name" required />
+            </label>
+
+            <label>
+              Email address
+              <input name="email" type="email" placeholder="Email address" required />
+            </label>
+
+            <label>
+              Industry
+              <input name="industry" type="text" placeholder="e.g. Cleaning, plumbing, dentistry" />
+            </label>
+
+            <label>
+              Message optional
+              <textarea name="message" placeholder="Anything you would like us to know?"></textarea>
+            </label>
+
+            <button class="form-button" type="submit">Request Early Access</button>
+            <p class="privacy-note">Your details will only be used to contact you about TrustClip Media early access.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 TrustClip Media. Launching soon.</span>
+      <span>Helping businesses make better use of the trust they have already earned.</span>
+    </div>
+  </footer>
+</body>
+</html>
